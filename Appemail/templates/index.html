@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'contacto' %}">
+        {% csrf_token %}
+
+        {% if messages %}
+            {% for message in messages%}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+        <input type="text" name="name" placeholder="Ingrese su nombre"><br>
+        <input type="text" name="email" placeholder="Ingrese su email"><br>
+        <input type="text" name="subject" placeholder="Asunto"><br>
+        <input type="text" name="message" placeholder="mensaje"><br>
+        <input type="submit" value="Enviar" style="width: 150px;">
+
+    </form>
+
+
+
+    
+</body>
+</html>
